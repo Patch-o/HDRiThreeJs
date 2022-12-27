@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { FirstPersonControls } from 'three/examples/jsm/controls/FirstPersonControls.js'
 import { RGBELoader } from "three/examples/jsm/loaders/RGBELoader.js";
+import gsap from 'gsap';
 
 const renderer = new THREE.WebGL1Renderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -116,22 +117,32 @@ const sphere5 = new THREE.Mesh(
 );
 scene.add(sphere5);
 sphere5.position.x = -5;
+///////////////////////////////////////////////////////
+
+/////////////////////////////////ANIMACION DE LA CAMARA GSAP//////////////////////
+
+window.addEventListener('mousedown', function() {
+  gsap.to(camera.position, {
+    z:14
+  })
+})
 
 function animate(time) { 
 
   sphere2.position.x = 5 * Math.sin(time / 1000);
   sphere2.position.y = 5 * Math.cos(time / 1000);
   
-  sphere3.position.x = 15 * Math.sin(time / 1000);
-  sphere3.position.z = 15 * Math.cos(time / 1000);
+  sphere3.position.x = 15 * Math.sin(time / 1100);
+  sphere3.position.z = 15 * Math.cos(time / 1100);
   
-  sphere4.position.x = 25 * Math.sin(time / 1000);
-  sphere4.position.y = 25 * Math.cos(time / 1000);
+  sphere4.position.x = 25 * Math.sin(time / 1800);
+  sphere4.position.y = 25 * Math.cos(time / 1800);
   sphere4.material.metalness = Math.sin(time/ 500);
   sphere4.material.roughness = Math.cos(time/ 500);
   
-  sphere5.position.x = 35 * Math.sin(time / 1000);
+  sphere5.position.x = 35 * Math.sin(time / 1500);
   sphere5.position.z = 35 * Math.cos(time / 1000);
+  sphere5.position.y = 35 * Math.sin(time / 900);
 
   
 

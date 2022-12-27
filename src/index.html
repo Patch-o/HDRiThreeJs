@@ -9,7 +9,8 @@
         body{
             margin: 0;
             padding: 0;
-            background-color: chocolate;
+            background: linear-gradient(90deg, red,blue);
+            z-index: -1;
         }
 
         .progress-bar-container {
@@ -19,7 +20,8 @@
             transform: translate(-50%, -50%);
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.452);
+            background: linear-gradient(90deg, rgb(131, 63, 15),rgb(58, 2, 110));
+
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -36,15 +38,79 @@
             color: white;
             font-size: 2rem;
         }
+        .container{
+            position: absolute;
+            z-index: 2;
+
+        }
+       
+        .container-aux{
+            position: relative;
+            display: inline-block;
+        }
+        .unfold{
+            color: white;
+            border: 1px solid white;
+            background: transparent;
+            padding: 0.6em;
+            margin-top: 2rem;
+            margin-left: 2rem;
+            margin-bottom: 0.2rem;
+            font-size: 24px;
+            border-radius: 3px;
+        }
+        .unfold:hover{
+            background: linear-gradient(45deg, brown, coral);            
+            transition:background 1.5s;
+        }
+        .dropdown-container{
+            display: none;
+            background-color: rgba(255, 255, 255, 0.24);
+            position: absolute;
+            margin: 2rem;
+            z-index: 2;
+            color: white;
+            width: 300px;
+            height: 200px;
+            
+        }
+        .dropdown-item{
+            margin-left: 2rem;
+            position: absolute;
+        }
+        .dropdown-container .dropdown-item{
+            color: bisque;
+            display: block;
+            /* position: inherit; */
+        }
+        .container-aux:hover .dropdown-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        
     </style>
 </head>
 <body>
 
     <div class="progress-bar-container">
         <label for="progress-bar">Loading...</label>
-        <progress id="progress-bar" value="0" max="100"></progress>
+        <progress id="progress-bar" value="20" max="100"></progress>
     </div>
-
+    
+    <div class="container">
+        <div class="container-aux">
+            <button class="unfold">INFO</button>
+            <div class="dropdown-container">
+                <div class="dropwdown-item">
+                    Threejs enviroment HDRI
+                </div>
+            </div>
+        </div>
+    </div>
+        
     <script src="./js/scripts.js" type="module" ></script>
 
 
